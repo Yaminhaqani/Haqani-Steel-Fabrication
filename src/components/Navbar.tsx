@@ -78,8 +78,8 @@ const Navbar = () => {
     <motion.nav
      initial={{y:-60}}
     animate={{y:0}}
-    transition={{type:"spring", stiffness: 120, damping: 6}}
-     className="flex justify-between bg-linear-to-r from-gray-900 to-gray-700 overflow-hidden border h-14 md:h-16">
+    transition={{type:"spring", stiffness: 300, damping: 9}}
+     className="flex justify-between bg-linear-to-r from-gray-950 to-gray-800 overflow-hidden h-14 md:h-16">
       <div className="h-full w-20 overflow-hidden ml-0.5 md:ml-2">
         <img
           src={logo}
@@ -93,9 +93,11 @@ const Navbar = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="hidden md:flex h-full gap-7 mr-2 items-center border border-white"
+        className="hidden md:flex h-full gap-7 mr-2 items-center"
       >
         {navLinks.map((link) => {
+          const isActive = window.location.pathname === link.href;
+
           const Icon = link.icon;
           return (
             <motion.a
@@ -103,7 +105,9 @@ const Navbar = () => {
               whileHover={{ scale: 1.1 }}
               key={link.name}
               href={link.href}
-              className="text-gray-300 font-light flex flex-col items-center hover:text-gray-400"
+              className={`flex flex-col font-light items-center 
+                 ${isActive ? "text-orange-400" : "text-gray-300 hover:text-orange-400/70"}
+                `}
             >
               <Icon size={18} />
               {link.name}
@@ -162,7 +166,13 @@ const Navbar = () => {
                     variants={itemVariant}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setClicked(false)}
-                    className="flex items-center gap-3 pl-2 text-gray-300 text-lg hover:text-gray-400 w-full"
+                    className={`flex items-center gap-3 pl-2 w-full text-lg transition-colors
+  ${
+    window.location.pathname === link.href
+      ? "text-orange-400"
+      : "text-gray-300 hover:text-gray-400"
+  }`}
+
                   >
                     <Icon size={22} />
                     <span>{link.name}</span>
