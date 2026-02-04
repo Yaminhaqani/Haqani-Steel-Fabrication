@@ -79,7 +79,7 @@ const Navbar = () => {
      initial={{y:-60}}
     animate={{y:0}}
     transition={{type:"spring", stiffness: 300, damping: 9}}
-     className="flex justify-between bg-linear-to-r from-gray-950 to-gray-800 overflow-hidden h-14 md:h-16">
+     className="flex justify-between bg-linear-to-r from-gray-950 to-gray-800 overflow-hidden h-14 md:h-16 z-50">
       <div className="h-full w-20 overflow-hidden ml-0.5 md:ml-2">
         <img
           src={logo}
