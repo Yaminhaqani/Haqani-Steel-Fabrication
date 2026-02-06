@@ -58,16 +58,14 @@ const AboutUs = () => {
           className="border-none rounded-3xl overflow-hidden"
         >
           <img
-            key={AboutUSImg.desktop}
             src={AboutUSImg.desktop}
-            srcSet={`${AboutUSImg.mobile} 768w,
-                           ${AboutUSImg.tablet} 1280w,
-                           ${AboutUSImg.desktop} 1920w`}
-            sizes="(max-width: 640px) 100vw,
-       (max-width: 1024px) 50vw,
-       640px"
+            srcSet={`${AboutUSImg.mobile} 960w,
+                           ${AboutUSImg.tablet} 1024w,
+                           ${AboutUSImg.desktop} 1200w`}
+            sizes="(max-width: 640px) 100vw, 50vw"
             alt="Steel fabrication work by Haqani Steel Fabrication"
-            fetchPriority="high"
+            loading="lazy"
+            fetchPriority="auto"
             className="w-full h-full object-cover object-center  transition-transform duration-500 ease-out md:hover:scale-105"
           />
         </motion.div>

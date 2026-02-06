@@ -49,7 +49,7 @@ const Services = () => {
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="h-14 w-14"
+                  className="w-10 h-10"
                 />
                 <CardTitle className="text-base font-semibold">
                   {card.title}

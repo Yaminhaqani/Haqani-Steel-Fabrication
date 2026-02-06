@@ -1,4 +1,4 @@
-import logo from "@/assets/logoo.png";
+import logo from "@/assets/logo.png";
 import { AnimatePresence, motion } from "motion/react";
 import type { Variants } from "motion/react";
 import { useState } from "react";
@@ -84,7 +84,8 @@ const Navbar = () => {
         <img
           src={logo}
           alt="logo"
-          className="h-full w-full object-contain scale-300"
+          fetchPriority="high"
+          className="h-full w-full object-cover"
         />
       </div>
 
