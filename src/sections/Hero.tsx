@@ -56,7 +56,7 @@ const itemVariants: Variants = {
   variants={containerVariants}
   initial="hidden"
   animate="visible"
-  className="space-y-2 absolute top-15 md:top-40 lg:left-30 lg:top-18 py-2 md:py-4 left-1/2 -translate-x-1/2 w-[93dvw] md:w-[70dvw] lg:w-fit px-2 backdrop-blur-xs bg-black/5 border border-white/10 shadow-xl rounded-2xl"
+  className="space-y-2 absolute top-24 md:top-40 lg:left-30 lg:top-18 py-2 md:py-4 left-1/2 -translate-x-1/2 w-[93dvw] md:w-[70dvw] lg:w-fit px-2 backdrop-blur-xs bg-black/5 border border-white/10 shadow-xl rounded-2xl"
 >
   <motion.h1 
     variants={itemVariants}

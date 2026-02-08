@@ -66,7 +66,7 @@ const AboutUs = () => {
             alt="Steel fabrication work by Haqani Steel Fabrication"
             loading="lazy"
             fetchPriority="auto"
-            className="w-full h-full object-cover object-center  transition-transform duration-500 ease-out md:hover:scale-105"
+            className="w-full h-full object-cover object-center  transition-transform duration-500 ease-out scale-102 md:hover:scale-105"
           />
         </motion.div>
       </div>
