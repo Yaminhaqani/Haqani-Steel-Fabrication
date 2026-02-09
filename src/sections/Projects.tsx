@@ -5,8 +5,8 @@ import { motion } from "motion/react";
 const Projects = () => {
   return (
     <section id="projects"
-     className="w-full flex-col items-center bg-linear-to-b from-gray-950 via-gray-800 to-gray-950">
-         <div className="pt-8 pb-4 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
+     className="w-full h-fit flex-col items-center bg-linear-to-b from-gray-950 via-gray-800 to-gray-950">
+         <div className="w-full pt-8 pb-4 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
         <motion.h2
           initial={{opacity:0, y: -7 }}
           whileInView={{opacity:1, y: 0 }}
@@ -17,7 +17,7 @@ const Projects = () => {
           FEATURED PROJECTS
         </motion.h2>
       </div>
-     <div className="w-dvw h-[55dvh] md:h-[70dvh]">
+     <div className="w-full h-[55dvh] md:h-[70dvh]">
       <DomeGallery
       images={ProjectImg}
   fit={0.8}

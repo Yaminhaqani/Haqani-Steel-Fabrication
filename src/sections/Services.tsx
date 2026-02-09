@@ -11,9 +11,9 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="bg-linear-to-b from-gray-950 via-gray-800 to-gray-950 pb-6"
+      className="w-full h-fit bg-linear-to-b from-gray-950 via-gray-800 to-gray-950 pb-6"
     >
-      <div className="py-8 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
+      <div className="w-full py-8 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
         <motion.h2
           initial={{opacity:0, y: -7 }}
           whileInView={{opacity:1, y: 0 }}

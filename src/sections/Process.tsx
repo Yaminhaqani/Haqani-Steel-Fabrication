@@ -17,8 +17,8 @@ const Process = () => {
   };
 
   return (
-    <section className="bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
-      <div className="pt-8 pb-4">
+    <section className="w-full h-fit bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
+      <div className="w-full h-fit pt-8 pb-4">
         <motion.h2
           initial={{opacity:0, y: -7 }}
           whileInView={{opacity:1, y: 0 }}

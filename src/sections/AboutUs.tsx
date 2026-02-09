@@ -5,9 +5,9 @@ const AboutUs = () => {
   return (
     <section
       id="about"
-      className="bg-linear-to-b from-gray-950 via-gray-800 to-gray-950"
+      className="w-full h-fit bg-linear-to-b from-gray-950 via-gray-800 to-gray-950"
     >
-      <div className="pt-4 pb-3 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
+      <div className="w-full h-fit pt-4 pb-3 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
         <motion.h2
           initial={{opacity:0, y: -15 }}
           whileInView={{opacity:1, y: 0 }}
@@ -19,7 +19,7 @@ const AboutUs = () => {
         </motion.h2>
       </div>
 
-      <div className="grid gap-6 px-6 mx-auto items-center py-3 sm:grid-cols-2 max-w-7xl">
+      <div className="w-full h-fit grid gap-6 px-6 mx-auto items-center py-3 sm:grid-cols-2 max-w-7xl">
         <motion.div
           initial={{ x: -20, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
