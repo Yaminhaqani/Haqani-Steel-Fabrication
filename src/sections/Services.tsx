@@ -1,8 +1,6 @@
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -15,12 +13,12 @@ const Services = () => {
       id="services"
       className="bg-linear-to-b from-gray-950 via-gray-800 to-gray-950 pb-6"
     >
-      <div className="border border-black py-8 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
+      <div className="py-8 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
         <motion.h2
-          initial={{ y: -7 }}
-          whileInView={{ y: 0 }}
+          initial={{opacity:0, y: -7 }}
+          whileInView={{opacity:1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           className="text-2xl md:text-3xl text-center text-gray-950 font-medium"
         >
           OUR EXPERTISE
@@ -35,7 +33,7 @@ const Services = () => {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -6 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{
               type: "spring",
               stiffness: 200,

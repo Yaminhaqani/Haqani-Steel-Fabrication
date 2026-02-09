@@ -7,10 +7,10 @@ const AboutUs = () => {
       id="about"
       className="bg-linear-to-b from-gray-950 via-gray-800 to-gray-950"
     >
-      <div className="border border-black pt-4 pb-3 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
+      <div className="pt-4 pb-3 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
         <motion.h2
-          initial={{ y: -15 }}
-          whileInView={{ y: 0 }}
+          initial={{opacity:0, y: -15 }}
+          whileInView={{opacity:1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.7 }}
           className="text-2xl md:text-3xl text-center text-gray-950 font-medium"

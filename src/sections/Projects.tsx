@@ -4,13 +4,14 @@ import { motion } from "motion/react";
 
 const Projects = () => {
   return (
-    <div className="w-dvw flex-col items-center bg-linear-to-b from-gray-950 via-gray-800 to-gray-950">
-         <div className="border border-black pt-8 pb-4 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
+    <section id="projects"
+     className="w-full flex-col items-center bg-linear-to-b from-gray-950 via-gray-800 to-gray-950">
+         <div className="pt-8 pb-4 bg-linear-to-r from-gray-600 via-slate-200 to-slate-600">
         <motion.h2
-          initial={{ y: -7 }}
-          whileInView={{ y: 0 }}
+          initial={{opacity:0, y: -7 }}
+          whileInView={{opacity:1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           className="text-2xl md:text-3xl text-center text-gray-950 font-medium"
         >
           FEATURED PROJECTS
@@ -27,7 +28,7 @@ const Projects = () => {
   grayscale={false}
 />
     </div>
-    </div>
+    </section>
   )
 }
 
