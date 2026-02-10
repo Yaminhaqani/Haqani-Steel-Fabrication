@@ -8,7 +8,9 @@ export const serviceOptions = [
   "Tractor Trolleys",
   "PEB & Roofing Installation",
 ] as const;
-//as const` is IMPORTANT: Makes these literal types instead of `string[]`. Enables full type safety
+//as const` is IMPORTANT: Makes these literal types instead of `string[]`. Enables full type safety. difference between telling TypeScript "This is a list of strings" and "This is a specific, unchangeable list of these exact words."
+//Without as const, TypeScript sees serviceOptions as a regular string[]. This means it thinks the values could change later (e.g., someone could push a new string into the array).
+//With as const, TypeScript treats the array as read-only and identifies the specific strings inside it as literal types.
 
 export const contactFormSchema = z.object({
   name: z
@@ -23,7 +25,7 @@ export const contactFormSchema = z.object({
   email: z
     .string()
     .trim()
-    .min(1, { message: "Email is required" })
+    .min(1, { error: "Email is required" })
     .max(100, "Email is too long")
     .pipe(z.email({ error: "Please enter a valid email address" })),
 

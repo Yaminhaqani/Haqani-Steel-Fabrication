@@ -22,7 +22,7 @@ const Process = () => {
         <motion.h2
           initial={{opacity:0, y: -7 }}
           whileInView={{opacity:1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={{ once: true, amount: 0.7 }}
           transition={{ duration: 0.7 }}
           className="text-2xl md:text-3xl text-center text-gray-950 font-medium"
         >

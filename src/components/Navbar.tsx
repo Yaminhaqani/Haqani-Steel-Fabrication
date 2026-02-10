@@ -25,7 +25,7 @@ const Navbar = () => {
       x: 0,
       transition: {
         type: "spring",
-        stiffness: 260,
+        stiffness: 200,
         damping: 20,
         staggerChildren: 0.12,
         delayChildren: 0.15,
@@ -69,7 +69,7 @@ const Navbar = () => {
       transition: {
         type: "spring",
         stiffness: 300,
-        damping: 6,
+        damping: 10,
       },
     },
   };
