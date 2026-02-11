@@ -84,19 +84,32 @@ const Form = () => {
     }
   };
 
+const baseInputClasses = `
+  bg-white/1
+  border border-gray-300
+  text-gray-900
+  placeholder:text-gray-500
+  focus:bg-white/25
+  focus:border-gray-900
+  focus:ring-1 focus:ring-gray-900
+  transition-all
+`;
+
+
+
   return (
     <section
       id="contact"
-      className="w-full bg-linear-to-b from-gray-950 via-gray-800 to-gray-950"
+      className="w-full flex justify-center bg-linear-to-b from-gray-950 via-gray-800 to-gray-950"
     >
-      <div className="w-full pt-8 pb-4">
+      <div className="pt-8 pb-8">
         <form
           name="contact" //→ Netlify form name
           method="POST" //→ enable Netlify Forms
           data-netlify="true" //→ required
           data-netlify-honeypot="bot-field" //→ free spam protection
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6 max-w-md mx-auto p-6 border rounded-lg shadow-sm bg-linear-to-b from-gray-600 via-slate-300 to-slate-600"
+          className="space-y-6 w-[95vw] max-w-md mx-auto p-6 rounded-3xl shadow-sm bg-linear-to-b from-gray-600 via-slate-300 to-slate-600"
         >
           <motion.h2
             initial={{ opacity: 0, y: -7 }}
@@ -113,14 +126,18 @@ const Form = () => {
 
           <div className="space-y-2">
             {/* NAME */}
-            <Label htmlFor="name">Name</Label>
+            <Label
+            className="text-gray-800"
+             htmlFor="name">Name</Label>
             <Input
               id="name"
               type="text"
               placeholder="John Doe"
               //Spread the 'register' props. This injects onChange, onBlur, and name="name".
               {...register("name")}
-              className={errors.name ? "border-red-500" : ""}
+              className={`${baseInputClasses} ${
+  errors.name ? "border-red-500 ring-1 ring-red-500" : ""
+}`}
             />
             {errors.name && (
               <p className="text-sm text-red-500 font-medium">
@@ -131,13 +148,17 @@ const Form = () => {
 
           {/* EMAIL */}
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label
+            className="text-gray-800"
+             htmlFor="email">Email</Label>
             <Input
               id="email"
               type="email"
               placeholder="john@example.com"
               {...register("email")}
-              className={errors.email ? "border-red-500" : ""}
+              className={`${baseInputClasses} ${
+  errors.name ? "border-red-500 ring-1 ring-red-500" : ""
+}`}
             />
             {errors.email && (
               <p className="text-sm text-red-500 font-medium">
@@ -148,13 +169,17 @@ const Form = () => {
 
           {/* Phone */}
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number</Label>
+            <Label
+            className="text-gray-800"
+             htmlFor="phone">Phone Number</Label>
             <Input
               id="phone"
               type="tel"
               placeholder="1234567890"
               {...register("phone")}
-              className={errors.phone ? "border-red-500" : ""}
+              className={`${baseInputClasses} ${
+  errors.name ? "border-red-500 ring-1 ring-red-500" : ""
+}`}
             />
             {errors.phone && (
               <p className="text-sm text-red-500 font-medium">
@@ -171,7 +196,7 @@ const Form = () => {
              "Hey, the user selected 'Main Gates'".
       */}
           <div className="space-y-2">
-            <Label>Service Required</Label>
+            <Label className="text-gray-800">Service Required</Label>
             <Controller
               name="service"
               control={control} //Pass the control object from useForm
@@ -182,7 +207,13 @@ const Form = () => {
                   defaultValue={field.value} //// Set the initial value from RHF
                 >
                   <SelectTrigger
-                    className={errors.service ? "border-red-500" : ""}
+                    className={`
+    bg-white/1
+    border border-gray-300
+    text-gray-900
+    focus:ring-1 focus:ring-gray-900
+    ${errors.service ? "border-red-500 ring-1 ring-red-500" : ""}
+  `}
                   >
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
