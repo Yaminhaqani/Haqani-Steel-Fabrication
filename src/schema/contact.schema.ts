@@ -7,6 +7,7 @@ export const serviceOptions = [
   "Iron Window Frames",
   "Tractor Trolleys",
   "PEB & Roofing Installation",
+  "Other"
 ] as const;
 //as const` is IMPORTANT: Makes these literal types instead of `string[]`. Enables full type safety. difference between telling TypeScript "This is a list of strings" and "This is a specific, unchangeable list of these exact words."
 //Without as const, TypeScript sees serviceOptions as a regular string[]. This means it thinks the values could change later (e.g., someone could push a new string into the array).
@@ -39,6 +40,19 @@ export const contactFormSchema = z.object({
   service: z.enum(serviceOptions, {
     error: "Please select a service",
   }),
-});
+
+  otherDetails: z
+  .string()
+  .optional(),
+})
+.refine(  //helps in applying extra condition of our own
+  (data) =>
+    data.service !== "Other" ||
+  (data.otherDetails && data.otherDetails.trim().length >3),
+  {
+    message: "Please describe your requirement",
+    path: ["otherDetails"] //Without this, the error would appear as a global form error. With this it specifically to errors.otherDetails.
+  }
+);
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

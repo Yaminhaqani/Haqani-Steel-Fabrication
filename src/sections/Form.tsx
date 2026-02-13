@@ -27,6 +27,7 @@ const Form = () => {
     register, // Function to link standard inputs (like <input>) to the form system
     control, //needed for Controller (the "Brain" for custom inputs)
     handleSubmit,
+    watch,
     formState: { errors }, // Object containing any validation errors (e.g., "Email is required")
     reset, // Function to clear the form after a successful submission
   } = useForm<ContactFormData>({
@@ -38,8 +39,10 @@ const Form = () => {
       email: "",
       phone: "",
       service: undefined,
+      otherDetails:"",
     },
   });
+  const selectedService = watch("service");
 
   // 2. Netlify Encoder
   // Helper function to format data for Netlify.
@@ -60,6 +63,8 @@ const Form = () => {
     setIsSubmitting(true);
 
     try {
+      console.log(data);
+      
       //Send the data to Netlify
       const response = await fetch("/", {
         method: "POST",
@@ -212,6 +217,7 @@ const baseInputClasses = `
     bg-white/1
     border border-gray-300
     text-gray-900
+    data-[placeholder]:text-black/60
     focus:ring-1 focus:ring-gray-900
     ${errors.service ? "border-red-500 ring-1 ring-red-500" : ""}
   `}
@@ -229,15 +235,46 @@ const baseInputClasses = `
                 </Select>
               )}
             />
-
-            {/* Hidden input for Netlify to see the value (since Select is just divs)
-            <input type="hidden" {...register("service")} /> */}
             {errors.service && (
               <p className="text-sm text-red-500 font-medium">
                 {errors.service.message}
               </p>
             )}
           </div>
+
+          {/* CONDITIONAL OTHER FIELD */}
+{selectedService === "Other" && (
+  <div className="space-y-2">
+    <Label className="text-gray-800">
+      Describe Your Requirement
+    </Label>
+
+    <textarea
+      {...register("otherDetails")}
+      placeholder="Please describe what you need..."
+      className={`
+        w-full p-3 rounded-md
+        bg-white/1
+        border border-gray-300
+        text-gray-900
+        focus:ring-1 focus:ring-gray-900
+        transition-all
+        ${
+          errors.otherDetails
+            ? "border-red-500 ring-1 ring-red-500"
+            : ""
+        }
+      `}
+    />
+
+    {errors.otherDetails && (
+      <p className="text-sm text-red-500 font-medium">
+        {errors.otherDetails.message}
+      </p>
+    )}
+  </div>
+)}
+
 
           <Button type="submit"
            className="w-full"
