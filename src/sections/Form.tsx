@@ -56,6 +56,7 @@ const Form = () => {
 
   //This function runs ONLY if Zod validation passes
   const onSubmit = async (data: ContactFormData) => {
+    
     setIsSubmitting(true);
 
     try {
@@ -229,8 +230,8 @@ const baseInputClasses = `
               )}
             />
 
-            {/* Hidden input for Netlify to see the value (since Select is just divs) */}
-            <input type="hidden" {...register("service")} />
+            {/* Hidden input for Netlify to see the value (since Select is just divs)
+            <input type="hidden" {...register("service")} /> */}
             {errors.service && (
               <p className="text-sm text-red-500 font-medium">
                 {errors.service.message}

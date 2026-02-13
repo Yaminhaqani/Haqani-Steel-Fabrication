@@ -12,7 +12,7 @@ import FloatingButton from "./components/FloatingButton";
 
 const App = () => {
   return (
-    <div>
+    <div className="relative">
       <div className="w-full h-fit overflow-x-hidden">
         <Navbar />
         <Hero />
