@@ -27,7 +27,7 @@ const Form = () => {
     register, // Function to link standard inputs (like <input>) to the form system
     control, //needed for Controller (the "Brain" for custom inputs)
     handleSubmit,
-    watch,
+    watch, //This means like RHF, tell me the current value of the service field. and whenever it changes, rerender component.
     formState: { errors }, // Object containing any validation errors (e.g., "Email is required")
     reset, // Function to clear the form after a successful submission
   } = useForm<ContactFormData>({
@@ -39,7 +39,7 @@ const Form = () => {
       email: "",
       phone: "",
       service: undefined,
-      otherDetails:"",
+      otherDetails: "",
     },
   });
   const selectedService = watch("service");
@@ -59,12 +59,11 @@ const Form = () => {
 
   //This function runs ONLY if Zod validation passes
   const onSubmit = async (data: ContactFormData) => {
-    
     setIsSubmitting(true);
 
     try {
       console.log(data);
-      
+
       //Send the data to Netlify
       const response = await fetch("/", {
         method: "POST",
@@ -78,7 +77,7 @@ const Form = () => {
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
-      
+
       toast.success("Message sent successfully!");
 
       reset();
@@ -90,7 +89,7 @@ const Form = () => {
     }
   };
 
-const baseInputClasses = `
+  const baseInputClasses = `
   bg-white/1
   border border-gray-300
   text-gray-900
@@ -100,8 +99,6 @@ const baseInputClasses = `
   focus:ring-1 focus:ring-gray-900
   transition-all
 `;
-
-
 
   return (
     <section
@@ -132,9 +129,9 @@ const baseInputClasses = `
 
           <div className="space-y-2">
             {/* NAME */}
-            <Label
-            className="text-gray-800"
-             htmlFor="name">Name</Label>
+            <Label className="text-gray-800" htmlFor="name">
+              Name
+            </Label>
             <Input
               id="name"
               type="text"
@@ -142,8 +139,8 @@ const baseInputClasses = `
               //Spread the 'register' props. This injects onChange, onBlur, and name="name".
               {...register("name")}
               className={`${baseInputClasses} ${
-  errors.name ? "border-red-500 ring-1 ring-red-500" : ""
-}`}
+                errors.name ? "border-red-500 ring-1 ring-red-500" : ""
+              }`}
             />
             {errors.name && (
               <p className="text-sm text-red-500 font-medium">
@@ -154,17 +151,17 @@ const baseInputClasses = `
 
           {/* EMAIL */}
           <div className="space-y-2">
-            <Label
-            className="text-gray-800"
-             htmlFor="email">Email</Label>
+            <Label className="text-gray-800" htmlFor="email">
+              Email
+            </Label>
             <Input
               id="email"
               type="email"
               placeholder="john@example.com"
               {...register("email")}
               className={`${baseInputClasses} ${
-  errors.name ? "border-red-500 ring-1 ring-red-500" : ""
-}`}
+                errors.name ? "border-red-500 ring-1 ring-red-500" : ""
+              }`}
             />
             {errors.email && (
               <p className="text-sm text-red-500 font-medium">
@@ -175,17 +172,17 @@ const baseInputClasses = `
 
           {/* Phone */}
           <div className="space-y-2">
-            <Label
-            className="text-gray-800"
-             htmlFor="phone">Phone Number</Label>
+            <Label className="text-gray-800" htmlFor="phone">
+              Phone Number
+            </Label>
             <Input
               id="phone"
               type="tel"
               placeholder="1234567890"
               {...register("phone")}
               className={`${baseInputClasses} ${
-  errors.name ? "border-red-500 ring-1 ring-red-500" : ""
-}`}
+                errors.name ? "border-red-500 ring-1 ring-red-500" : ""
+              }`}
             />
             {errors.phone && (
               <p className="text-sm text-red-500 font-medium">
@@ -243,43 +240,33 @@ const baseInputClasses = `
           </div>
 
           {/* CONDITIONAL OTHER FIELD */}
-{selectedService === "Other" && (
-  <div className="space-y-2">
-    <Label className="text-gray-800">
-      Describe Your Requirement
-    </Label>
+          {selectedService === "Other" && (
+            <div className="space-y-2">
+              <Label className="text-gray-800">Describe Your Requirement</Label>
 
-    <textarea
-      {...register("otherDetails")}
-      placeholder="Please describe what you need..."
-      className={`
+              <textarea
+                {...register("otherDetails")}
+                placeholder="Please describe what you need..."
+                className={`
         w-full p-3 rounded-md
         bg-white/1
         border border-gray-300
         text-gray-900
         focus:ring-1 focus:ring-gray-900
         transition-all
-        ${
-          errors.otherDetails
-            ? "border-red-500 ring-1 ring-red-500"
-            : ""
-        }
+        ${errors.otherDetails ? "border-red-500 ring-1 ring-red-500" : ""}
       `}
-    />
+              />
 
-    {errors.otherDetails && (
-      <p className="text-sm text-red-500 font-medium">
-        {errors.otherDetails.message}
-      </p>
-    )}
-  </div>
-)}
+              {errors.otherDetails && (
+                <p className="text-sm text-red-500 font-medium">
+                  {errors.otherDetails.message}
+                </p>
+              )}
+            </div>
+          )}
 
-
-          <Button type="submit"
-           className="w-full"
-            disabled={isSubmitting}
-            >
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? "Sending..." : "Submit Request"}
           </Button>
         </form>
