@@ -6,7 +6,7 @@ import Process from "./sections/Process";
 import AboutUs from "./sections/AboutUs";
 import Projects from "./sections/Projects";
 import Form from "./sections/Form";
-import { toast, Toaster } from "sonner";
+import { Toaster } from "sonner";
 import { Suspense } from "react";
 import FloatingButton from "./components/FloatingButton";
 
