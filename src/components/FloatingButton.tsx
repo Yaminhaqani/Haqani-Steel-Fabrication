@@ -10,7 +10,7 @@ const FloatingButton = () => {
 
   const items = [
     { icon: <FaWhatsapp />, color: "green", label: "Whatsapp", href: "https://wa.me/916006336973", },
-    { icon: <BsFillTelephoneFill />, color: "purple", label: "Call", href:"tel:+917889757436" },
+    { icon: <BsFillTelephoneFill />, color: "purple", label: "Call", href:"tel:+916006336973" },
     { icon: <FaMapLocation />, color: "blue", label: "Location", href:"https://www.google.com/maps/place/Haqani+steel+fabrication/@33.8010031,74.9404363,17z/data=!3m1!4b1!4m6!3m5!1s0x38e1f7003906ec79:0xb15ddd5d1ad58f24!8m2!3d33.8010031!4d74.9404363!16s%2Fg%2F11yxxssx8x?entry=ttu&g_ep=EgoyMDI2MDIxMC4wIKXMDSoASAFQAw%3D%3D" },
   ];
 
