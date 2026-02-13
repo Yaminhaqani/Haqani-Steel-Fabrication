@@ -67,7 +67,7 @@ const Footer = () => {
                 IGC, Lasipora, Pulwama, Kashmir - 192301, India
               </a>
               <a
-                href="mailto:contact@speedbirdtourandtravel.in"
+                href="mailto:yaminhaqani@gmail.com"
                 className="flex items-center text-sm hover:text-amber-600 transition-colors duration-300"
               >
                 <span className="mr-2">
