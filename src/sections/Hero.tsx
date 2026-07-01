@@ -32,7 +32,7 @@ const itemVariants: Variants = {
   return (
     <section 
     id="home"
-    className="w-full h-[60dvh] md:h-[60dvh] lg:h-[76dvh] relative overflow-hidden bg-black">
+    className="w-full h-[60svh] md:h-[60dvh] lg:h-[76dvh] relative overflow-hidden bg-black">
         <motion.img
           key={heroImages.desktop} 
           src={heroImages.desktop}
