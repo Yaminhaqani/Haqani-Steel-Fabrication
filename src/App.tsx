@@ -3,10 +3,10 @@ import { Toaster } from "sonner";
 
 import Navbar from "./components/Navbar";
 import Hero from "./sections/Hero";
+import AboutUs from "./sections/AboutUs";
 import FloatingButton from "./components/FloatingButton";
 
 // Lazy-loaded sections
-const AboutUs = lazy(() => import("./sections/AboutUs"));
 const Services = lazy(() => import("./sections/Services"));
 const Projects = lazy(() => import("./sections/Projects"));
 const Process = lazy(() => import("./sections/Process"));
@@ -19,6 +19,7 @@ const App = () => {
       <div className="w-full h-fit overflow-x-hidden">
         <Navbar />
         <Hero />
+        <AboutUs />
 
         <Suspense
           fallback={
@@ -27,7 +28,6 @@ const App = () => {
             </div>
           }
         >
-          <AboutUs />
           <Services />
           <Projects />
           <Process />
