@@ -1,14 +1,17 @@
-import Hero from "./sections/Hero";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Services from "./sections/Services";
-import Process from "./sections/Process";
-import AboutUs from "./sections/AboutUs";
-import Projects from "./sections/Projects";
-import Form from "./sections/Form";
+import { lazy, Suspense } from "react";
 import { Toaster } from "sonner";
-import { Suspense } from "react";
+
+import Navbar from "./components/Navbar";
+import Hero from "./sections/Hero";
 import FloatingButton from "./components/FloatingButton";
+
+// Lazy-loaded sections
+const AboutUs = lazy(() => import("./sections/AboutUs"));
+const Services = lazy(() => import("./sections/Services"));
+const Projects = lazy(() => import("./sections/Projects"));
+const Process = lazy(() => import("./sections/Process"));
+const Form = lazy(() => import("./sections/Form"));
+const Footer = lazy(() => import("./components/Footer"));
 
 const App = () => {
   return (
@@ -16,7 +19,6 @@ const App = () => {
       <div className="w-full h-fit overflow-x-hidden">
         <Navbar />
         <Hero />
-        <AboutUs />
 
         <Suspense
           fallback={
@@ -25,27 +27,28 @@ const App = () => {
             </div>
           }
         >
+          <AboutUs />
           <Services />
           <Projects />
           <Process />
+          <Form />
+          <Footer />
         </Suspense>
-
-        <Form />
-        
-        <Footer />
       </div>
+
       <FloatingButton />
-       <Toaster
-          position="top-center"
-          richColors
-          toastOptions={{
-            classNames: {
-              toast: "justify-center",
-              title: "text-center",
-              description: "text-center",
-            },
-          }}
-        />
+
+      <Toaster
+        position="top-center"
+        richColors
+        toastOptions={{
+          classNames: {
+            toast: "justify-center",
+            title: "text-center",
+            description: "text-center",
+          },
+        }}
+      />
     </div>
   );
 };
