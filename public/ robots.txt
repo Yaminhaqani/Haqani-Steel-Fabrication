@@ -1,0 +1,17 @@
+# www.haqanisteelfabrication.in robots.txt
+# Targeted for a React-based local business site in Pulwama, Kashmir
+
+User-agent: *
+Allow: /
+
+# Block common React/build patterns and unwanted paths
+Disallow: /static/js/
+Disallow: /static/css/
+Disallow: /*?_escaped_fragment_=
+Disallow: /404
+
+# Host
+Host: https://www.haqanisteelfabrication.in
+
+# Sitemap Location
+Sitemap: https://www.haqanisteelfabrication.in/sitemap.xml
