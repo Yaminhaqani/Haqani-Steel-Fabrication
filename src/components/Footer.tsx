@@ -94,7 +94,7 @@ const Footer = () => {
             className="flex flex-col items-start md:items-center order-1 md:order-2 md:mb-4"
           >
             <div className="w-full flex justify-start md:justify-center overflow-hidden">
-              <img className="w-30 h-fit object-cover" src={logo} alt="Logo" />
+              <img className="w-30 h-auto object-contain" src={logo} alt="Logo" />
             </div>
             <div className="flex flex-col gap-2 -mt-3">
               <p className="flex items-center md:text-center text-sm">
